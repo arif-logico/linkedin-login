@@ -7,7 +7,7 @@ const http = require('http');
 
 var server = http.Server(app);
 
-app.use(express.static('client/public'))
+app.use(express.static('client/functions'))
 
 server.listen(PORT, function() {
     console.log('server is running')
