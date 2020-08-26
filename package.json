@@ -9,6 +9,12 @@
   "author": "habib",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1"
+    "cookie-parser": "^1.4.5",
+    "crypto": "^1.0.1",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "firebase-admin": "^9.1.1",
+    "firebase-functions": "^3.11.0",
+    "node-linkedin": "^0.5.6"
   }
 }

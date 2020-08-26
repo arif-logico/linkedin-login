@@ -1,10 +1,6 @@
 {
   "rules": {
-    "linkedInAccessToken": {
-      "$uid": {
-        ".read": "auth.uid === $uid",
-        ".write": "auth.uid === $uid"
-      }
-    }
+    ".read": "auth != null",
+    ".write": "auth != null"
   }
 }
