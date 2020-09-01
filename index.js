@@ -38,7 +38,7 @@ function linkedInClient() {
   return require("node-linkedin")(
     process.env.client_id,
     process.env.client_secret,
-    `http://localhost:5000/popup.html`
+    `https://demo-app-project.herokuapp.com/popup.html`
   );
 }
 
