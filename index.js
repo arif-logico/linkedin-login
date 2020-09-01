@@ -21,7 +21,7 @@ admin.initializeApp({
   databaseURL: "https://qapp-hk.firebaseio.com",
 });
 
-const OAUTH_SCOPES = ["r_basicprofile", "r_emailaddress"];
+const OAUTH_SCOPES = ["r_liteprofile", "r_emailaddress"];
 
 server.listen(PORT, function () {
   console.log("server is running");
