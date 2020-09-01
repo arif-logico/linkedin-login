@@ -91,8 +91,10 @@ app.use("/token", (req, res) => {
           }
           console.log("Received Access Token:", results.access_token);
           const linkedin = Linkedin.init(results.access_token);
+          console.log("LinkedIn after init");
           linkedin.people.me(async (error, userResults) => {
             if (error) {
+              console.log(error.message);
               throw error;
             }
             console.log("Auth code exchange result received:", userResults);
@@ -117,11 +119,12 @@ app.use("/token", (req, res) => {
               token: firebaseToken,
             });
           });
+          console.log("LinkedIn end");
         }
       );
     });
   } catch (error) {
-    return res.jsonp({ error: error.toString });
+    return res.jsonp({ error: error.toString() });
   }
 });
 
