@@ -60,13 +60,6 @@
       }
 
       /**
-       * Returns the ID of the Firebase project.
-       */
-      function getFirebaseProjectId() {
-        return firebase.app().options.authDomain.split(".")[0];
-      }
-
-      /**
        * This callback is called by the JSONP callback of the 'token' Firebase Function with the Firebase auth token.
        */
       function tokenReceived(data) {
@@ -96,20 +89,14 @@
           "Error back from the LinkedIn auth pag: " + error;
       } else if (!code) {
         // Start the auth flow.
-        window.location.href =
-          "https://us-central1-" +
-          getFirebaseProjectId() +
-          ".cloudfunctions.net/redirect";
+        window.location.href = `${location.protocol}//${location.host}/redirect`;
       } else {
         // Use JSONP to load the 'token' Firebase Function to exchange the auth code against a Firebase custom token.
         const script = document.createElement("script");
         script.type = "text/javascript";
         // This is the URL to the HTTP triggered 'token' Firebase Function.
         // See https://firebase.google.com/docs/functions.
-        var tokenFunctionURL =
-          "https://us-central1-" +
-          getFirebaseProjectId() +
-          ".cloudfunctions.net/token";
+        var tokenFunctionURL = (window.location.href = `${location.protocol}//${location.host}/token`);
         script.src =
           tokenFunctionURL +
           "?code=" +
